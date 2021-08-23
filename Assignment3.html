@@ -1,0 +1,66 @@
+<!doctype html>
+
+    <html>
+    <head>
+    <meta charset="utf-8">
+    <title>Povrsina kvadra</title>
+    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+    </head>
+
+    <body>
+
+    <div style="text-align:center">
+     <form>
+     <h1>Povrsina Kvadra</h1>
+
+        <p>Duzina:
+
+          <input type="number" min="1" oninput="this.value = Math.abs(this.value)" id="duzinaBroj"/>
+
+        </p>
+    <br />
+        <p>Sirina:
+
+          <input type="number" min="1" oninput="this.value = Math.abs(this.value)" id="sirinaBroj"/>
+
+        </p>
+    <br />
+        <p>Visina:
+
+          <input type="number" min="1" oninput="this.value = Math.abs(this.value)" id="visinaBroj"/>
+
+        </p>
+    <br />
+        </p>
+    <br />
+        <p class="povrsina">Povrsina:
+
+          <input type="text" id="povrsina" disabled="disabled" />
+        </p>
+    <br />
+          <input type="button" id="izracunati" onClick="izracunatiPovrsinu(duzinaBroj.value, sirinaBroj.value, visinaBroj.value)" value="Izracunati povrsinu"/>
+     </form>
+    </div>
+
+    <script>
+    "use strict";
+var $ = function(id) {
+  return document.getElementById(id);
+};
+
+var length = $("duzina");
+var width = $("sirina");
+var height = $("visina");
+var ukupnoPovrsina = 0;
+
+function izracunatiPovrsinu(duzina, sirina, visina) {
+  ukupnoPovrsina = 2 * ((parseFloat(duzina) * parseFloat(sirina)) + (parseFloat(duzina) * parseFloat(visina)) + (parseFloat(sirina) * parseFloat(visina)));
+  var povrsinaDecimala = ukupnoPovrsina.toFixed(2);
+  $('povrsina').value = povrsinaDecimala;
+
+
+};
+    </script>
+    
+</body>
+</html>
